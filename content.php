@@ -1,62 +1,56 @@
 <div id="preloader-container">
-
 <div id="container">
+<?php 
+  $args = array (
+      'post_type'=>'page',
+      'nopaging'=>'false',
+      'order'=>'ASC'
+    );
+  $query = new WP_Query($args);
 
-<?php
-  $args = array(
-		'post_type' => 'post',
-		'nopaging' => 'true',
-		'orderby' => 'modified',
-		'order' => 'ASC',
-	);
+if($query->have_posts()){
+  while($query->have_posts()){
 
-	$query = new WP_Query($args);
-
-	if($query->have_posts()){
-		while($query->have_posts()){
-			$query->the_post();
-					
 ?>
-<div class="widget portfolio web homepage">
+  <?php $query->the_post(); ?>
+  <div class="widget portfolio web homepage">
     <div class="entry-container span4">
     
-	<!-- Portfolio Image -->
-	<div class="entry-image">
-		<a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="fancybox">
-	  	<span class="entry-image-overlay"></span>
-	 	<img width="300" height="225" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="attachment-medium wp-post-image" alt="playmakers_zidane" />        </a>
-	</div>
-        
+      <!-- Portfolio Image -->
+      <div class="entry-image">
+        <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="fancybox">
+          <span class="entry-image-overlay"></span>
+          <?php the_post_thumbnail('medium'); ?>
+        </a>
+      </div>
 
-	<div class="entry drop-shadow curved ">
-		<?php
-			echo '<h1>'.get_the_title().'</h1>';
+      <div class="entry drop-shadow curved ">
 
-		?>
-		<p>
-			<?php the_content(); ?>
-			<?php the_category() ?><br />
-		</p>
-		
-	 <div class="entry-footer">
-		 	<ul>
-		 		<li class="left">دقایقی پیش</li>
-		 		<li>توسط :<?php the_author() ?></li>
-		 		<li class="right no-margin"><div class="icon comment"></div> 3</li>
-		 		<li class="right"><div class="icon like"></div> 3</li>
-		 	</ul>
-		 </div>
-		 	
-		 <div class="stripes"></div>
-	</div>
+        <!-- Portfolio Heading -->
+        <h5 class="heading">
+          <a href="portfolio-single.html">
+            <?php the_title(); ?>
+          </a>
+        </h5>
+        <div class="entry-footer">
+          <ul>
+            <li class="left">گرافیک</li>
+            <li>توسط :<?php the_author() ?></li>
+            <li class="right no-margin"><div class="icon like"></div> 3</li>
+      
+          </ul>
+        </div>
 
-	<?php
-			}
-		}
-		wp_reset_postdata();
-	?>
-
-</div>
-</div>
+        <p><?php the_excerpt(); ?></p>
+          
+        <div class="stripes"></div>
+      </div>      
+    </div>
+  </div>
+<?php
+  } //END WHILE
+  } //END IF
+  wp_reset_postdata();
+?>
 </div>
 </div>
