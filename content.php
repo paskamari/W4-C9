@@ -1,19 +1,26 @@
 <div id="preloader-container">
 <div id="container">
 <?php 
-  $args = array (
-      'post_type'=>'page',
-      'nopaging'=>'false',
-      'order'=>'ASC'
-    );
+
+  $args = array(
+    'post_type' => 'portfolio',
+    'orderby' => 'name',
+    'order' => 'ASC'
+  );
+
   $query = new WP_Query($args);
 
-if($query->have_posts()){
-  while($query->have_posts()){
 
+  if($query->have_posts()){
+    while($query->have_posts()){
+      $class_name ='portfolio';
+      $query->the_post(); 
+      $types = get_the_terms($post->ID,'type');
+      foreach($types as $type) {
+        $class_name .= " hp_".$type->slug;
+      }
 ?>
-  <?php $query->the_post(); ?>
-  <div class="widget portfolio web homepage">
+  <div class="widget <?php echo $class_name;?> web homepage">
     <div class="entry-container span4">
     
       <!-- Portfolio Image -->
