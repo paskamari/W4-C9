@@ -1,8 +1,20 @@
 <!-- Le Header
 ================================================== -->
 <!-- This is the logo and navigation -->
+<?php
 
-  <div class="navigation">
+ 	$taxonomies = array('type');
+
+	$args = array(
+	  'orderby' => 'name',
+	  'order' => 'ASC',
+	  'hide_empty' => True
+	);
+
+	$all_types = get_terms( $taxonomies, $args );
+?>
+
+	<div class="navigation">
 		<nav>
 			
 			<!-- Slap your MOBILE logo here -->
@@ -24,9 +36,11 @@
 					<li>
 						<a href="#filter=.portfolio" class="selected"><span data-toggle="collapse" data-target="#portfolio-collapse"></span>نمونه کارها</a>
 						<ul id="portfolio-collapse" class="collapse out">
-							<li><a href="#filter=.graphics">گرافیک</a></li>
-							<li><a href="#filter=.illustration">وب سایت</a></li>
-							<li><a href="#filter=.web">موبایل</a></li>
+							<?php
+								foreach($all_types as $type) {
+									echo "<li><a href='#filter=.hp_$type->slug'> $type->name </a></li>";
+							 	} 
+							?>
 						</ul>
 					</li>
 					
