@@ -16,8 +16,10 @@
       $class_name ='portfolio';
       $query->the_post(); 
       $types = get_the_terms($post->ID,'type');
-      foreach($types as $type) {
-        $class_name .= " hp_".$type->slug;
+      if($types){
+        foreach($types as $type) {
+          $class_name .= " hp_".$type->slug;
+        }
       }
 ?>
   <div class="widget <?php echo $class_name;?> web homepage">
