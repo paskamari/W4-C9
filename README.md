@@ -1,11 +1,11 @@
 W4-C9
 =====
-# My HomeWork and Project in W4-C9 class
+## My HomeWork and Project in W4-C9 class
 
-## TEAM
+### TEAM
 * [Hamid Paskamari](https://github.com/paskamari) `paskamari`
 
-## TECHNOLOGY
+### TECHNOLOGY
 * [WordPress](http://ali.md/g/wordpress)
 * [PHP](http://ali.md/g/php)
 * [HTML5](http://ali.md/wiki/html5)
@@ -13,7 +13,7 @@ W4-C9
 * [JavaScript](http://ali.md/wiki/javascript)
 * [jQuery.js](http://ali.md/jquery.js)
 
-## THANKS (Contributors)
+### THANKS (Contributors)
 * [Ali Mihandoost](https://github.com/AliMD) `AliMD`
 * [Ali aGHasizadeh](https://github.com/AliGH) `AliGH`
 * [Mansoor Masoudifar](https://github.com/dante1357) `dante1357`
