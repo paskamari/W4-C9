@@ -21,5 +21,8 @@ W4-C9
 
 #### HEAD (now)
   * [View full changes](https://github.com/paskamari/W4-C9)
+
+#### HELP
+ * Copy & Replace admin-fa_IR.po file in wp-content\languages
   
 `All rights reserved`
