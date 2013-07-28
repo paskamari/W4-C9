@@ -1,16 +1,3 @@
-<?php
-
-  $taxonomies = array('types');
-
-  $args = array(
-    'orderby' => 'name',
-    'order' => 'ASC',
-    'hide_empty' => False
-  );
-
-  $all_types = get_terms( $taxonomies, $args );
-?>
-
 <!-- Our Work Section -->
 <div id="work" class="page">
   <div class="container">
@@ -34,8 +21,16 @@
                       <li class="type-work">Type of Work</li>
                         <li><a href="#filter" data-option-value="*" class="selected">All Projects</a></li>
                         <?php
+                          $taxonomies = array('types');
+                          $args = array(
+                            'orderby' => 'name',
+                            'order' => 'ASC',
+                            'hide_empty' => True
+                          );
+
+                          $all_types = get_terms( $taxonomies, $args );
                           foreach($all_types as $type) {
-                            echo "<li><a href=\"#filter\" data-option-value=\".$type->slug\">$type->name</a></li>\n";
+                            echo "<li><a href=\"#filter\" data-option-value=\".hp_$type->slug\">$type->name</a></li>\n";
                           } 
                         ?>
                     </ul>
@@ -45,119 +40,46 @@
             
             <div class="span9">
               <div class="row">
-                  <section id="projects">
-                      <ul id="thumbs">
-                        
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 design">
-                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/image-01-full.jpg">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-01.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 design">
-                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="_include/img/work/full/image-02-full.jpg">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-02.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 photography">
-                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="_include/img/work/full/image-03-full.jpg">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-03.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 video">
-                              <!-- Fancybox Media - Gallery Enabled - Title - Link to Video -->
-                              <a class="hover-wrap fancybox-media" data-fancybox-group="video" title="Video Content From Vimeo" href="http://vimeo.com/51460511">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-08.jpg" alt="Video">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 photography">
-                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Sea" href="_include/img/work/full/image-04-full.jpg">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-04.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 photography">
-                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Clouds" href="_include/img/work/full/image-05-full.jpg">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-05.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 video">
-                              <!-- Fancybox Media - Gallery Enabled - Title - Link to Video -->
-                              <a class="hover-wrap fancybox-media" data-fancybox-group="video" title="Video Content From Vimeo" href="http://vimeo.com/50834315">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-09.jpg" alt="Video">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 design">
-                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Dark" href="_include/img/work/full/image-06-full.jpg">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-06.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                          <!-- End Item Project -->
-                            
-              <!-- Item Project and Filter Name -->
-                          <li class="item-thumbs span3 design">
-                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Beach" href="_include/img/work/full/image-07-full.jpg">
-                                  <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/image-07.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                          <!-- End Item Project -->
-                        </ul>
-                    </section>
+                <section id="projects">
+                  <ul id="thumbs">
+
+                    <?php 
+                      $args = array(
+                        'post_type' => 'portfolio',
+                        'orderby' => 'name',
+                        'order' => 'ASC'
+                      );
+                      $query = new WP_Query($args);
+                      if($query->have_posts()){
+                        while($query->have_posts()){
+                          $class_name ='';
+                          $query->the_post(); 
+                          $types = get_the_terms($post->ID,'types');
+                          if($types){
+                            foreach($types as $type) {
+                              $class_name .="hp_".$type->slug;
+                            }
+                          }
+                    ?>
                     
+                    <!-- Item Project and Filter Name -->
+                      <li class="item-thumbs span3 <?php echo $class_name;?>">
+                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="<?php the_title(); ?>" href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>">
+                          <span class="overlay-img"></span>
+                          <span class="overlay-img-thumb font-icon-plus"></span>
+
+                        </a>
+                        <!-- Thumb Image and Description -->
+                        <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" alt="<?php the_excerpt(); ?>">
+                      </li>
+                      <!-- End Item Project -->
+                      <?php
+                          }
+                        }
+                      ?>
+                  </ul>
+                </section>
               </div>
             </div>
         </div>
