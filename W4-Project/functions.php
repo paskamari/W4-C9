@@ -7,18 +7,18 @@
 		add_theme_support('menus');
 
 		$labels = array(
-		    'name' => __('Portfolio'),
-		    'singular_name' => __('portfolio'),
-		    'add_new' => __('Add New'),
-		    'add_new_item' => __('Add New Portfolio'),
-		    'edit_item' => __('Edit Portfolio'),
-		    'new_item' => __('New Portfolio'),
-		    'view_item' => __('View Portfolio'),
-		    'search_items' => __('Search Portfolio'),
-		    'not_found' =>  __('No Portfolio found'),
-		    'not_found_in_trash' => __('No Portfolio found in Trash'),
+		    'name' => __('Portfolio','W4Project'),
+		    'singular_name' => __('portfolio','W4Project'),
+		    'add_new' => __('Add New','W4Project'),
+		    'add_new_item' => __('Add New Portfolio','W4Project'),
+		    'edit_item' => __('Edit Portfolio','W4Project'),
+		    'new_item' => __('New Portfolio','W4Project'),
+		    'view_item' => __('View Portfolio','W4Project'),
+		    'search_items' => __('Search Portfolio','W4Project'),
+		    'not_found' =>  __('No Portfolio found','W4Project'),
+		    'not_found_in_trash' => __('No Portfolio found in Trash','W4Project'),
 		    'parent_item_colon' => '',
-		    'menu_name' => __('Portfolio')
+		    'menu_name' => __('Portfolio','W4Project')
 		);
 
 		$args = array(
@@ -53,7 +53,7 @@
 					'edit_item' => __('Edit Type'),
 					'view_item' => __('View Type'),
 					'update_item' => __('Update Type'),
-					'add_new_item' => __('Add New Type'),
+					'add_new_item' => __('Add New Type','W4Project'),
 					'new_item_name' => __('New Type Name'),
 					'parent_item' => __('Parent Type'),
 					'search_items' => __('Search Types'),
@@ -77,3 +77,9 @@
 	}
 
 	add_action('init', 'custome_theme_init');
+	
+	add_action('after_setup_theme', 'my_theme_setup');
+
+	function my_theme_setup(){
+	    load_theme_textdomain('W4Project', get_template_directory() . '/languages');
+	}
