@@ -9,7 +9,7 @@
 		$labels = array(
 		    'name' => __('Portfolio'),
 		    'singular_name' => __('portfolio'),
-		    'add_new' => __('Add New', 'portfolio'),
+		    'add_new' => __('Add New'),
 		    'add_new_item' => __('Add New Portfolio'),
 		    'edit_item' => __('Edit Portfolio'),
 		    'new_item' => __('New Portfolio'),
@@ -32,8 +32,8 @@
 		    'capability_type' => 'post',
 		    'has_archive' => true,
 		    'hierarchical' => false,
-		    'menu_position' => 15,
-		    //'menu_icon' => get_bloginfo('template_url') . '/images/portfolio_icon.png', // 16x16
+		    'menu_position' => 20,
+		    'menu_icon' => get_bloginfo('template_url') . '/_include/img/filter-icon.png', // 16x16
 		    'supports' => array('title','editor','thumbnail','excerpt','category')
 		);
 
