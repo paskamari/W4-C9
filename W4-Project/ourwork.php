@@ -1,3 +1,16 @@
+<?php
+
+  $taxonomies = array('types');
+
+  $args = array(
+    'orderby' => 'name',
+    'order' => 'ASC',
+    'hide_empty' => False
+  );
+
+  $all_types = get_terms( $taxonomies, $args );
+?>
+
 <!-- Our Work Section -->
 <div id="work" class="page">
   <div class="container">
@@ -20,9 +33,11 @@
                     <ul id="filters" class="option-set" data-option-key="filter">
                       <li class="type-work">Type of Work</li>
                         <li><a href="#filter" data-option-value="*" class="selected">All Projects</a></li>
-                        <li><a href="#filter" data-option-value=".design">Design</a></li>
-                        <li><a href="#filter" data-option-value=".photography">Photography</a></li>
-                        <li><a href="#filter" data-option-value=".video">Video</a></li>
+                        <?php
+                          foreach($all_types as $type) {
+                            echo "<li><a href=\"#filter\" data-option-value=\".$type->slug\">$type->name</a></li>\n";
+                          } 
+                        ?>
                     </ul>
                 </nav>
                 <!-- End Filter -->
