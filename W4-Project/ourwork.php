@@ -57,13 +57,13 @@
                           $types = get_the_terms($post->ID,'types');
                           if($types){
                             foreach($types as $type) {
-                              $class_name .="hp_".$type->slug;
+                              $class_name .=" hp_".$type->slug;
                             }
                           }
                     ?>
                     
                     <!-- Item Project and Filter Name -->
-                      <li class="item-thumbs span3 <?php echo $class_name;?>">
+                      <li class="item-thumbs span3<?php echo $class_name;?>">
                         <!-- Fancybox - Gallery Enabled - Title - Full Image -->
                         <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="<?php the_title(); ?>" href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>">
                           <span class="overlay-img"></span>
