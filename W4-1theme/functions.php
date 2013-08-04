@@ -6,19 +6,29 @@
 
 		add_theme_support('menus');
 
+		register_sidebar(array(
+			'name' => 'Sidebar Right',
+			'id' => 'sidebar-r',
+			'description' => 'Right panel ...',
+			'before_widget' => '<div class="widget portfolio homepage isotope-item %2$s" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate(22px, 22px);"><div class="entry-container span-full"><div class="entry drop-shadow curved">',
+		    'after_widget' => '<br> </p><div class="stripes"></div></div></div></div>',
+		    'before_title' => '<h2 class="textcenter oswald">',
+		    'after_title' => '</h2><p class="textcenter">'
+		));
+
 		$labels = array(
-		    'name' => __('Portfolio'),
-		    'singular_name' => __('portfolio'),
-		    'add_new' => __('Add New'),
-		    'add_new_item' => __('Add New Portfolio'),
-		    'edit_item' => __('Edit Portfolio'),
-		    'new_item' => __('New Portfolio'),
-		    'view_item' => __('View Portfolio'),
-		    'search_items' => __('Search Portfolio'),
-		    'not_found' =>  __('No Portfolio found'),
-		    'not_found_in_trash' => __('No Portfolio found in Trash'),
+		    'name' => __('Portfolio','WP3e'),
+		    'singular_name' => __('portfolio','WP3e'),
+		    'add_new' => __('Add New','WP3-1Theme'),
+		    'add_new_item' => __('Add New Portfolio','WP3'),
+		    'edit_item' => __('Edit Portfolio','WP3e'),
+		    'new_item' => __('New Portfolio','WP3e'),
+		    'view_item' => __('View Portfolio','WP3e'),
+		    'search_items' => __('Search Portfolio','WP3e'),
+		    'not_found' =>  __('No Portfolio found','WP3e'),
+		    'not_found_in_trash' => __('No Portfolio found in Trash','WP3e'),
 		    'parent_item_colon' => '',
-		    'menu_name' => __('Portfolio')
+		    'menu_name' => __('Portfolio','WP3e')
 		);
 
 		$args = array(
@@ -89,6 +99,6 @@
 	      // ali.md/wpref/update_post_meta
 	    }
 	  }
-	}
+}
 
 	add_action('init', 'custome_theme_init');
