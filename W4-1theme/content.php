@@ -1,7 +1,8 @@
 <div id="preloader-container">
 <div id="container">
-<?php 
 
+<?php 
+  dynamic_sidebar('Sidebar Right');
   $args = array(
     'post_type' => 'portfolio',
     'orderby' => 'name',
@@ -14,7 +15,11 @@
   if($query->have_posts()){
     while($query->have_posts()){
       $class_name ='portfolio';
-      $query->the_post(); 
+      $query->the_post();
+
+      $meta = get_post_custom();
+      $price = count($meta['price'])>0 ? $meta['price'][0] : 0;
+
       $types = get_the_terms($post->ID,'type');
       if($types){
         foreach($types as $type) {
@@ -45,7 +50,7 @@
           <ul>
             <li class="left">گرافیک</li>
             <li>توسط :<?php the_author() ?></li>
-            <li class="right no-margin"><div class="icon like"></div> 3</li>
+            <li class="right no-margin">Price : <b class="bolding"><?php echo $price; ?></b>$</li>
       
           </ul>
         </div>
